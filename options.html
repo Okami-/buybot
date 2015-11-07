@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .shoe-buyer {
+
+    }
+    .container {
+      max-width: 1230px;
+      margin: 0 auto;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="options.css" />
+<body>
+  <div class="shoe-buyer">
+    <div class="container">
+      <h1>Buy Bot</h1>
+      <h2>Shoe Size in Mens</h2>
+      <form action="post">
+        <select name="Buy Shoe" id="shoe-size">
+          <option value="5">5</option>
+          <option value="5.5">5.5</option>
+          <option value="6">6</option>
+          <option value="6.5">6/5</option>
+          <option value="7">7</option>
+          <option value="7.5">7.5</option>
+          <option value="8">8</option>
+          <option value="8.5">8.5</option>
+          <option value="9">9</option>
+          <option value="9.5">9.5</option>
+          <option value="10">10</option>
+        </select>
+      </form>
+      <h2>Contact</h2>
+      <div id="contact-form" class="clearfix">
+        <form method="post" action="process.php">
+            <label for="name">Name: <span class="required">*</span></label>
+            <input type="text" id="name" name="name" value="" placeholder="John Doe" required="required" autofocus="autofocus" />
+
+            <label for="email">Email Address: <span class="required">*</span></label>
+            <input type="email" id="email" name="email" value="" placeholder="johndoe@example.com" required="required" />
+
+            <label for="telephone">Telephone: </label>
+            <input type="tel" id="telephone" name="telephone" value="" />
+            <span id="loading"></span>
+            <input type="submit" value="Holla!" id="submit-button" />
+            <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+        </form>
+      </div>
+      <h2>Credit Card</h2>
+      <form accept-charset="UTF-8" action="/payment" class="cardInfo" method="post">
+
+        <fieldset class="cardInfo__cardDetails">
+
+          <div class="form-row cardInfo__cc-num">
+            <label for="cc-num"><abbr title="required">*</abbr><span>Card Number</span></label>
+            <div class="cc-num__wrap">
+              <!-- using type="tel" because type="number" doesn’t pass HTML5 form validation with jQuery.payment formatting -->
+              <input id="cc-num" type="tel" class="paymentInput cc-num" placeholder="•••• •••• •••• ••••" autocompletetype="cc-number" required="required">
+              <span class="card" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="form-row cardInfo__cc-exp">
+            <label for="cc-exp"><abbr title="required">*</abbr><span>Expires</span></label>
+            <input id="cc-exp" type="tel" class="paymentInput cc-exp" placeholder="MM / YY" autocompletetype="cc-exp" required="required">
+          </div>
+
+          <div class="form-row cardInfo__cc-cvc">
+            <label for="cc-cvc"><abbr title="required">*</abbr><span>CVC</span></label>
+            <input id="cc-cvc" type="tel" class="paymentInput cc-cvc" placeholder="CVC" autocompletetype="cc-cvc" required="required">
+          </div>
+
+          <div class="cardInfo__submission">
+            <input class="button" name="commit" type="submit" value="Make Payment">
+            <a class="cancel-link" href="/">Cancel</a>
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+  </div>
+  <button id="save">Save</button>
+  <div id="status"></div>
+  <script src="jquery-1.11.3.min.js"></script>
+  <script src="jquery.payment.min.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
